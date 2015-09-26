@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="estilo.css" />
+		<title>Minha página</title>
+		<script>
+		function load() {
+			var audio = new Audio('tuts_tuts.mp3');
+			audio.addEventListener('ended', function() {
+			    this.currentTime = 0;
+				this.play();
+			}, false);
+			audio.play();
+			
+			var visibility = "block";
+			setInterval(function(){ 
+				document.getElementById("titulo").style.display = visibility;
+				visibility = (visibility == "block")? "none" : "block";
+			}, 230);
+
+			var r = 0;
+			var g = 0;
+			var b = 0;
+			setInterval(function() {
+				r = parseInt(Math.random() * 255);
+				g = parseInt(Math.random() * 255);
+				b = parseInt(Math.random() * 255);
+				(document.getElementsByTagName("aside")[0]).style.background = "rgb("+r+","+g+","+b+")";
+			}, 100);
+		}
+		</script>
+	</head>
+	<body onLoad="load()">
+		<!-- Cabeçalho -->
+		<header>
+			<h1 id="titulo">Minha página pessoal</h1>
+		</header>
+		<!-- Menu lateral -->
+		<aside>
+			<div id="photo-holder">
+				<img src="img/gato.gif" />
+			</div>
+			<h3>Menu</h3>
+			<nav id="menu" class="menu">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="sobre.html">Sobre</a></li>
+					<li><a href="fotos.html">Fotos</a></li>
+				</ul>
+			</nav>
+		</aside>
+		<!-- Corpo -->
+		<section>
+			<p>
+				<marquee>Heeeey, how're you doin'?</marquee>
+			</p>
+		</section>
+		<!-- Rodapé -->
+		<footer>
+			<a href="http://www.google.com.br">Contato</a>
+		</footer>
+	</body>
+</html>
